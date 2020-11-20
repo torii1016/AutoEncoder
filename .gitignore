@@ -1,0 +1,5 @@
+logs/*
+saved_model/*
+scripts/model/__pycache__/*
+scripts/model/tf_util/__pycache__/*
+scripts/utils/__pycache__/*

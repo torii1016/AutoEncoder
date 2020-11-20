@@ -1,0 +1,103 @@
+[AutoEncoder]
+    [AutoEncoder.network]
+    name = 'AutoEncoder'
+    model_start_key = 1
+
+    [AutoEncoder.layer1]
+    type = 'conv2d'
+    name = 'conv1_1'
+    output_channel = 16
+    fileter_size = [3,3]
+    stride = 1
+    padding = 'SAME'
+    bn=false
+    activation_fn = 'ReLU'
+    extra_feature = false
+
+    [AutoEncoder.layer2]
+    type = 'maxpool'
+    karnel_size = [1,2,2,1]
+    stride = [1,2,2,1]
+    padding = 'SAME'
+
+    [AutoEncoder.layer3]
+    type = 'conv2d'
+    name = 'conv2_1'
+    output_channel = 8
+    fileter_size = [3,3]
+    stride = 1
+    padding = 'SAME'
+    bn=false
+    activation_fn = 'ReLU'
+    extra_feature = false
+
+    [AutoEncoder.layer4]
+    type = 'maxpool'
+    karnel_size = [1,2,2,1]
+    stride = [1,2,2,1]
+    padding = 'SAME'
+
+    [AutoEncoder.layer5]
+    type = 'conv2d'
+    name = 'conv3_1'
+    output_channel = 8
+    fileter_size = [3,3]
+    stride = 1
+    padding = 'SAME'
+    bn=false
+    activation_fn = 'ReLU'
+    extra_feature = false
+
+    [AutoEncoder.layer6]
+    type = 'maxpool'
+    karnel_size = [1,2,2,1]
+    stride = [1,2,2,1]
+    padding = 'SAME'
+
+    [AutoEncoder.layer7]
+    type = 'deconv2d'
+    name = 'conv4_1'
+    output_channel = [-1,7,7,8]
+    fileter_size = [3,3]
+    stride = 2
+    padding = 'SAME'
+    bn=false
+    activation_fn = 'ReLU'
+    extra_feature = false
+
+    [AutoEncoder.layer8]
+    type = 'deconv2d'
+    name = 'conv5_1'
+    output_channel = [-1,14,14,8]
+    fileter_size = [3,3]
+    stride = 2
+    padding = 'SAME'
+    bn=false
+    activation_fn = 'ReLU'
+    extra_feature = false
+
+    [AutoEncoder.layer9]
+    type = 'deconv2d'
+    name = 'conv6_1'
+    output_channel = [-1,28,28,16]
+    fileter_size = [3,3]
+    stride = 2
+    padding = 'SAME'
+    bn=false
+    activation_fn = 'ReLU'
+    extra_feature = false
+
+    [AutoEncoder.layer10]
+    type = 'conv2d'
+    name = 'conv7_1'
+    output_channel = 1
+    fileter_size = [3,3]
+    stride = 1
+    padding = 'SAME'
+    bn=false
+    activation_fn = 'Sigmoid'
+    extra_feature = false
+
+    [AutoEncoder.layer11]
+    type = 'reshape'
+    shape = [-1, 784]

@@ -1,0 +1,42 @@
+[dataset]
+    [dataset.VOC2007]
+    name = "VOC2007"
+    image = "../SSD/dataset/VOC2007/JPEGImages/"
+    label = "../SSD/dataset/VOC2007/VOC2007.pkl"
+    test_data_num = 1000
+    label_name = ["aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor", "Unknown"]
+    image_width = 128
+    image_height = 128
+    image_channels = 3
+
+
+    [dataset.Cifar10]
+    name = "Cifar10"
+    path = "dataset/cifar-10/"
+    test_data_num = 300
+    label_name = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
+    image_width = 32
+    image_height = 32
+    image_channels = 3
+
+
+    [dataset.MNIST]
+    name = "MNIST"
+    path = "mnist_784"
+    test_data_num = 10
+    label_name = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    image_width = 28
+    image_height = 28
+    image_channels = 1
+
+
+[train]
+network = "config/AutoEncoder.toml"
+dataset = "MNIST"
+batch_size = 1000
+epoch = 10000
+lr = 0.001 #0.001
+val_step = 9999
+use_gpu = true
+save_model_path = "saved_model"
+save_model_name = "model.dump"
